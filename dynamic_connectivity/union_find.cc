@@ -14,9 +14,6 @@ void algo::UnionFind::Union(int p, int q) {
   if (!Connected(p, q)) {
     set_[q] = set_[p];
   }
-  for (size_t i = 0; i < set_size_; i++) {
-    std::cout << "[" << i << "]: " << set_[i] << "\n";
-  }
 }
 
 bool algo::UnionFind::Connected(int p, int q) {
