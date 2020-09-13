@@ -32,13 +32,14 @@ void algo::UnionFind::Union(int p, int q) {
 
   int rootp = Root(p);
   int rootq = Root(q);
+  if (rootp == rootq) return;
 
-  if (sizes_[rootp] > sizes_[rootq]) {
-    arr_[rootq] = arr_[rootp];
-    sizes_[rootp] += sizes_[rootq];
-  } else {
+  if (sizes_[rootp] < sizes_[rootq]) {
     arr_[rootp] = arr_[rootq];
     sizes_[rootq] += sizes_[rootp];
+  } else {
+    arr_[rootq] = arr_[rootp];
+    sizes_[rootp] += sizes_[rootq];
   }
 }
 

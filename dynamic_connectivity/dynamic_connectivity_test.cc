@@ -28,18 +28,32 @@ void ShouldNotBeConnected(const algo::UnionFind &union_find, int p, int q) {
 int main() {
   algo::UnionFind union_find(10);
 
-  union_find.Union(1, 2);
-  ShouldBeConnected(union_find, 1, 2);
+  union_find.Union(4, 3);
+  ShouldBeConnected(union_find, 4, 3);
 
-  union_find.Union(5, 9);
-  ShouldBeConnected(union_find, 5, 9);
+  union_find.Union(8, 3);
+  ShouldBeConnected(union_find, 8, 3);
 
-  union_find.Union(2, 9);
-  ShouldBeConnected(union_find, 9, 2);
-  ShouldBeConnected(union_find, 1, 9);
-  ShouldBeConnected(union_find, 1, 5);
+  union_find.Union(6, 5);
+  ShouldBeConnected(union_find, 6, 5);
 
-  ShouldNotBeConnected(union_find, 9, 6);
+  union_find.Union(9, 4);
+  ShouldBeConnected(union_find, 9, 4);
+
+  union_find.Union(2, 1);
+  ShouldBeConnected(union_find, 2, 1);
+
+  union_find.Union(5, 0);
+  ShouldBeConnected(union_find, 5, 0);
+
+  union_find.Union(7, 2);
+  ShouldBeConnected(union_find, 7, 2);
+
+  union_find.Union(6, 1);
+  ShouldBeConnected(union_find, 6, 1);
+
+  union_find.Union(7, 3);
+  ShouldBeConnected(union_find, 7, 3);
 
   union_find.Display();
 
