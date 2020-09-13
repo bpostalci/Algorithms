@@ -2,22 +2,46 @@
 
 #include "union_find.h"
 
+void ShouldBeConnected(const algo::UnionFind &union_find, int p, int q) {
+  bool res = union_find.Connected(p, q);
+  std::cout << p << ", " << q << " are connected (should be 1): " << res
+            << " - ";
+  if (res) {
+    std::cout << "PASSED!\n";
+  } else {
+    std::cout << "FAILED!\n";
+  }
+}
+
+void ShouldNotBeConnected(const algo::UnionFind &union_find, int p, int q) {
+  bool res = union_find.Connected(p, q);
+  std::cout << p << ", " << q << " are connected (should be 0): " << res
+            << " - ";
+  if (!res) {
+    std::cout << "PASSED!\n";
+  } else {
+    std::cout << "FAILED!\n";
+  }
+}
+
 // TODO: integrate with google test
 int main() {
   algo::UnionFind union_find(10);
+
   union_find.Union(1, 2);
-  std::cout << "1, 2 are connected (should be 1): "
-            << union_find.Connected(2, 1) << std::endl;
+  ShouldBeConnected(union_find, 1, 2);
+
+  union_find.Union(5, 9);
+  ShouldBeConnected(union_find, 5, 9);
 
   union_find.Union(2, 9);
-  std::cout << "9, 1 are connected (should be 1): "
-            << union_find.Connected(9, 1) << std::endl;
+  ShouldBeConnected(union_find, 9, 2);
+  ShouldBeConnected(union_find, 1, 9);
+  ShouldBeConnected(union_find, 1, 5);
 
-  std::cout << "9, 2 are connected (should be 1): "
-            << union_find.Connected(9, 2) << std::endl;
+  ShouldNotBeConnected(union_find, 9, 6);
 
-  std::cout << "9, 5 are connected (should be 0): "
-            << union_find.Connected(9, 5) << std::endl;
+  union_find.Display();
 
   return 0;
 }
