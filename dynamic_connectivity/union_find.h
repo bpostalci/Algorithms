@@ -7,7 +7,10 @@ namespace algo {
 class UnionFind {
  public:
   UnionFind(size_t n);
-  ~UnionFind() { delete[] arr_; }
+  ~UnionFind() {
+    delete[] arr_;
+    delete[] sizes_;
+  }
 
   void Union(int p, int q);
   bool Connected(int p, int q) const;
