@@ -6,8 +6,8 @@
 using namespace std;
 
 struct VecHash {
-  size_t operator()(const std::vector<int>& v) const {
-    std::hash<int> hasher;
+  size_t operator()(const vector<int>& v) const {
+    hash<int> hasher;
     size_t seed = 0;
     for (int i : v) {
       seed ^= hasher(i) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
@@ -21,10 +21,7 @@ using Set = unordered_set<vector<int>, VecHash>;
 vector<vector<int>> ThreeSum(vector<int>& nums) {
   vector<vector<int>> res;
   Set res_set;
-
-  // sort
   sort(nums.begin(), nums.end());
-
   int size = nums.size();
   for (size_t i = 0; i < size; i++) {
     unordered_set<int> s;

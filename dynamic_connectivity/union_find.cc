@@ -29,11 +29,9 @@ algo::UnionFind::UnionFind(size_t n)
 
 void algo::UnionFind::Union(int p, int q) {
   CheckIndexes(p, q);
-
   int rootp = Root(p);
   int rootq = Root(q);
   if (rootp == rootq) return;
-
   if (sizes_[rootp] < sizes_[rootq]) {
     arr_[rootp] = arr_[rootq];
     sizes_[rootq] += sizes_[rootp];
