@@ -50,7 +50,7 @@ int main() {
 
   auto res = ThreeSum(nums);
 
-  for (auto vec : res) {
+  for (const auto& vec : res) {
     cout << "{";
     for (auto it : vec) {
       cout << it << " ";
