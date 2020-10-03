@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(FinanceEngine)
+project(dynamic_connectivity)
 
 # Disable in-source builds to prevent source tree corruption.
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
