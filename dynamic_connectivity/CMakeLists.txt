@@ -13,5 +13,5 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_library(union_find union_find.cc)
-add_executable(dynamic_connectivity_test dynamic_connectivity_test.cc)
-target_link_libraries(dynamic_connectivity_test union_find)
+add_executable(test_dynamic_connectivity test_dynamic_connectivity.cc)
+target_link_libraries(test_dynamic_connectivity union_find)
